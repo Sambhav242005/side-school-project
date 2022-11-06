@@ -1,17 +1,28 @@
 import users as us
-def list(dist):
-  num =1
-  for i in dist :
-     print('{'+str(num)+'} '+i)
-     num = num +1
+
+def back():
+  dist = ['Exit','Back']
+  us.show_menu(dist)
+  select = int(input('\nSelect Option '))
+  if select == 2:
+    main()
+
 def main():
-  dist=['users','read users']
-  list(dist)
+  dist=['users','read users','delete users','update users']
+  us.show_menu(dist)
   option =int(input('select option '))
+
   if option ==1:
-    us.users('user.csv',['users','email'])
+    us.data_add('user.csv',['users','email'])
   if option==2:
-    us.get_data('user.csv')
+    data= us.get_data('user.csv')
+    print(data)
+  if option==3:
+    us.data_delete('user.csv')
+  if option==4:
+    us.update_data('user.csv',['users','email'])
+  back()  
+
 
 main()
 
