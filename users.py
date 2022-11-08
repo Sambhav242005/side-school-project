@@ -60,6 +60,22 @@ def update_data(csv,list):
     data.loc[row,column] = value
     print(data)
     data.to_csv(csv)
+def main_show(csv,list,name):
+  dist=['enter '+name+' data',
+       'read all '+name+' data','update existing '+name+' data','delete existing '+name+' data']
+  show_menu(dist)
+  select = int(input(' select following option '))
+  if select==1:
+     data_add(csv,list)
+  elif select==2:
+    data= get_data(csv)
+    print(data)
+  elif select ==3:
+    update_data(csv,list)
+  elif select ==4:
+    data_delete(csv)
 
+
+        
 
   
